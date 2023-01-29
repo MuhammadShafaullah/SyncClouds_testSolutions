@@ -1,0 +1,23 @@
+03. In production; service processes usually go down for many reasons.
+how to ensure they get restarted when that happens ?
+
+There are several ways to ensure that a service gets restarted when it goes down in production:
+
+Use a process manager: A process manager, such as Supervisor or systemd,
+can be used to automatically restart a service if it crashes or exits unexpectedly.
+These tools can be configured to monitor the service and automatically start it again
+if it stops running.
+
+Use a monitoring tool: A monitoring tool, such as Nagios or Prometheus, 
+can be used to monitor the health of a service and send notifications if it goes down.
+This can be configured to automatically restart the service if it goes down.
+
+Use a container orchestration tool: Container orchestration tools, such as Kubernetes
+and Docker Swarm, can be used to manage and automatically restart containers running 
+your service. These tools can be configured to automatically restart a container if it
+crashes or exits unexpectedly.
+
+Use a cloud service: Many cloud providers offer services that can automatically restart 
+failed instances. For example, Amazon Web Services (AWS) Elastic Beanstalk, Google App
+Engine, and Azure App Service all have built-in support for automatically restarting 
+failed instances.
