@@ -49,7 +49,7 @@ with transaction.atomic():
 # This method is faster than the previous one and it will also take care of the database 
 # transaction.    
 
-# Approach 02: 
+# Approach 03: 
 #           When we have large databases, it's pretty normal to index your database. That way, retrieving data, should be pretty quick.
 from django.db import models
 
@@ -64,9 +64,9 @@ class Book(models.Model):
             models.Index(fields=['author', 'published_date']), #Combination of of index
         ]
 
-# Approach 03:
+# Approach 04:
 #           we can also use Pagenation in django when we have to show data to user whaile when we have large amount of data in our database
-def myfunc(rewuest):
+def myfunc(request,id):
     products=Product.objects.all().order_by('id')
     paginator=Paginator(products,3,orphans=1)
     page_number= request.GET.get('page')
