@@ -50,7 +50,19 @@ with transaction.atomic():
 # transaction.    
 
 # Approach 02: 
-#           When you have large databases, it's pretty normal to index your database. That way, retrieving data, should be pretty quick.
+#           When we have large databases, it's pretty normal to index your database. That way, retrieving data, should be pretty quick.
+from django.db import models
+
+class Book(models.Model):
+    title = models.CharField(max_length=255)
+    author = models.CharField(max_length=255)
+    published_date = models.DateField()
+    is_available = models.BooleanField()
+
+    class Meta:
+        indexes = [
+            models.Index(fields=['author', 'published_date']), #Combination of of index
+        ]
 
 # Approach 03:
 #           we can also use Pagenation in django when we have to show data to user whaile when we have large amount of data in our database
